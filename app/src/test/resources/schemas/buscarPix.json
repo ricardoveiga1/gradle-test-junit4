@@ -1,0 +1,1307 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "qrcode_type": "PIX",
+      "data": {
+        "tx_id": "xpto123456789",
+        "document_id": "xpto123-1234-456-789-dr123",
+        "version": "5.0.0",
+        "status": "ACTIVE",
+        "amount": 500,
+        "final_amount": 500,
+        "refunded": false,
+        "paid": true,
+        "payer_request": "Lorem ipsum. Aasasd",
+        "url": "https://pix.bcb.gov.br/api/v2/AcessoPermitido",
+        "emv": "https://pix.bcb.gov.br/api/v2/AcessoPermitido/7d9f0335-8dcc-4054-9bf9-0dbd61d36906",
+        "pix_link": "https://pix.bcb.gov.br/api/v2/AcessoPermitido/MDAwMjAxMDEwMjExMjY4NjAw",
+        "imagem_base64": "XYZ7P5MGBmMNBOxiXPTOSGzUvXCKcBP60X2OsF9nqBvf4D8BsNcSWJ",
+        "amount_modifiers": {
+          "interest": 100,
+          "late_fee": 100,
+          "discount": 350,
+          "interest_percentage": 0.1,
+          "discount_percentage": 0.1,
+          "allow_changes": false
+        },
+        "dict_key": {
+          "type": "EMAIL",
+          "value": "ricardo@gmail.com"
+        },
+        "review_document": {
+          "review": 0,
+          "review_document_id": "xpto-1234-5678-8976-cr354f"
+        },
+        "calendar": {
+          "expiration": "2021-01-01 23:00:00",
+          "due_date": "2021-01-01 23:00:00",
+          "late_fee": "2021-01-01 23:00:00",
+          "interest": "2021-01-01 23:00:00",
+          "discount": "2021-01-01 23:00:00",
+          "presentation": "2021-01-01 23:00:00",
+          "overdue_payment_allowed": false,
+          "created_at": "2020-12-28 13:42:40"
+        },
+        "qrcode": {
+          "type": "DYNAMIC",
+          "reusable": true,
+          "qrcode_pix_id": "123456789",
+          "simulation": false,
+          "standard": false,
+          "status": "ACTIVE",
+          "reusable_type": "AUTOMATIC",
+          "operator_id": "12345",
+          "recipient": {
+            "number": "19571816051",
+            "name": "Teste para Estudo rest assured",
+            "document_type": "CPF",
+            "bank_account": {
+              "ispb": "123456789",
+              "name": "Teste estudo",
+              "branch": "05",
+              "number": "21052012",
+              "type": "CORRENTE"
+            }
+          },
+          "indirect_participant": {
+            "ispb": "123456789",
+            "financial_institution": "XTPO",
+            "account_type": "XXXXX",
+            "instant_payment_ispb_code": "Lorem Ipsum",
+            "agency": "lorem ipsum",
+            "account": "lorem ipsum"
+          }
+        },
+        "infos": [
+          {
+            "name": "Name teste",
+            "value": "Value Teste"
+          }
+        ],
+        "payments_quantity": 2,
+        "payments_document": [
+          {
+            "payment_id": "ABC1234",
+            "launch_id": "ABC1234",
+            "transfer_id": "ABC1234",
+            "camera_control_code": "ABC1234",
+            "document_id": "ABC1234",
+            "date_time": "2021-01-01 23:00:00",
+            "amount": 500,
+            "refund_possibility_indicator": false,
+            "max_refund_amount": 500,
+            "refunded_amount": 0,
+            "buyer_response_text": "Lorem ipsum"
+          },
+          {
+            "payment_id": "ABC12345",
+            "launch_id": "ABC12345",
+            "transfer_id": "ABC12345",
+            "camera_control_code": "ABC12345",
+            "document_id": "ABC12345",
+            "date_time": "2021-11-01 12:00:00",
+            "amount": 500,
+            "refund_possibility_indicator": false,
+            "max_refund_amount": 500,
+            "refunded_amount": 0,
+            "buyer_response_text": "Lorem ipsum"
+          }
+        ]
+      }
+    }
+  ],
+  "required": [
+    "qrcode_type",
+    "data"
+  ],
+  "properties": {
+    "qrcode_type": {
+      "id": "#/properties/qrcode_type",
+      "type": "string",
+      "title": "The qrcode_type schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "PIX"
+      ]
+    },
+    "data": {
+      "id": "#/properties/data",
+      "type": "object",
+      "title": "The data schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "tx_id": "xpto123456789",
+          "document_id": "xpto123-1234-456-789-dr123",
+          "version": "5.0.0",
+          "status": "ACTIVE",
+          "amount": 500,
+          "final_amount": 500,
+          "refunded": false,
+          "paid": true,
+          "payer_request": "Lorem ipsum. Aasasd",
+          "url": "https://pix.bcb.gov.br/api/v2/AcessoPermitido",
+          "emv": "https://pix.bcb.gov.br/api/v2/AcessoPermitido/7d9f0335-8dcc-4054-9bf9-0dbd61d36906",
+          "pix_link": "https://pix.bcb.gov.br/api/v2/AcessoPermitido/MDAwMjAxMDEwMjExMjY4NjAw",
+          "imagem_base64": "XYZ7P5MGBmMNBOxiXPTOSGzUvXCKcBP60X2OsF9nqBvf4D8BsNcSWJ",
+          "amount_modifiers": {
+            "interest": 100,
+            "late_fee": 100,
+            "discount": 350,
+            "interest_percentage": 0.1,
+            "discount_percentage": 0.1,
+            "allow_changes": false
+          },
+          "dict_key": {
+            "type": "EMAIL",
+            "value": "ricardo@gmail.com"
+          },
+          "review_document": {
+            "review": 0,
+            "review_document_id": "xpto-1234-5678-8976-cr354f"
+          },
+          "calendar": {
+            "expiration": "2021-01-01 23:00:00",
+            "due_date": "2021-01-01 23:00:00",
+            "late_fee": "2021-01-01 23:00:00",
+            "interest": "2021-01-01 23:00:00",
+            "discount": "2021-01-01 23:00:00",
+            "presentation": "2021-01-01 23:00:00",
+            "overdue_payment_allowed": false,
+            "created_at": "2020-12-28 13:42:40"
+          },
+          "qrcode": {
+            "type": "DYNAMIC",
+            "reusable": true,
+            "qrcode_pix_id": "123456789",
+            "simulation": false,
+            "standard": false,
+            "status": "ACTIVE",
+            "reusable_type": "AUTOMATIC",
+            "operator_id": "12345",
+            "recipient": {
+              "number": "19571816051",
+              "name": "Teste para Estudo rest assured",
+              "document_type": "CPF",
+              "bank_account": {
+                "ispb": "123456789",
+                "name": "Teste estudo",
+                "branch": "05",
+                "number": "21052012",
+                "type": "CORRENTE"
+              }
+            },
+            "indirect_participant": {
+              "ispb": "123456789",
+              "financial_institution": "XTPO",
+              "account_type": "XXXXX",
+              "instant_payment_ispb_code": "Lorem Ipsum",
+              "agency": "lorem ipsum",
+              "account": "lorem ipsum"
+            }
+          },
+          "infos": [
+            {
+              "name": "Name teste",
+              "value": "Value Teste"
+            }
+          ],
+          "payments_quantity": 2,
+          "payments_document": [
+            {
+              "payment_id": "ABC1234",
+              "launch_id": "ABC1234",
+              "transfer_id": "ABC1234",
+              "camera_control_code": "ABC1234",
+              "document_id": "ABC1234",
+              "date_time": "2021-01-01 23:00:00",
+              "amount": 500,
+              "refund_possibility_indicator": false,
+              "max_refund_amount": 500,
+              "refunded_amount": 0,
+              "buyer_response_text": "Lorem ipsum"
+            },
+            {
+              "payment_id": "ABC12345",
+              "launch_id": "ABC12345",
+              "transfer_id": "ABC12345",
+              "camera_control_code": "ABC12345",
+              "document_id": "ABC12345",
+              "date_time": "2021-11-01 12:00:00",
+              "amount": 500,
+              "refund_possibility_indicator": false,
+              "max_refund_amount": 500,
+              "refunded_amount": 0,
+              "buyer_response_text": "Lorem ipsum"
+            }
+          ]
+        }
+      ],
+      "required": [
+        "tx_id",
+        "document_id",
+        "version",
+        "status",
+        "amount",
+        "final_amount",
+        "refunded",
+        "paid",
+        "payer_request",
+        "url",
+        "emv",
+        "pix_link",
+        "imagem_base64",
+        "amount_modifiers",
+        "dict_key",
+        "review_document",
+        "calendar",
+        "qrcode",
+        "infos",
+        "payments_quantity",
+        "payments_document"
+      ],
+      "properties": {
+        "tx_id": {
+          "id": "#/properties/data/properties/tx_id",
+          "type": "string",
+          "title": "The tx_id schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "xpto123456789"
+          ]
+        },
+        "document_id": {
+          "id": "#/properties/data/properties/document_id",
+          "type": "string",
+          "title": "The document_id schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "xpto123-1234-456-789-dr123"
+          ]
+        },
+        "version": {
+          "id": "#/properties/data/properties/version",
+          "type": "string",
+          "title": "The version schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "5.0.0"
+          ]
+        },
+        "status": {
+          "id": "#/properties/data/properties/status",
+          "type": "string",
+          "title": "The status schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "ACTIVE"
+          ]
+        },
+        "amount": {
+          "id": "#/properties/data/properties/amount",
+          "type": "integer",
+          "title": "The amount schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            500
+          ]
+        },
+        "final_amount": {
+          "id": "#/properties/data/properties/final_amount",
+          "type": "integer",
+          "title": "The final_amount schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            500
+          ]
+        },
+        "refunded": {
+          "id": "#/properties/data/properties/refunded",
+          "type": "boolean",
+          "title": "The refunded schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "paid": {
+          "id": "#/properties/data/properties/paid",
+          "type": "boolean",
+          "title": "The paid schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "payer_request": {
+          "id": "#/properties/data/properties/payer_request",
+          "type": "string",
+          "title": "The payer_request schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "Lorem ipsum. Aasasd"
+          ]
+        },
+        "url": {
+          "id": "#/properties/data/properties/url",
+          "type": "string",
+          "title": "The url schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "https://pix.bcb.gov.br/api/v2/AcessoPermitido"
+          ]
+        },
+        "emv": {
+          "id": "#/properties/data/properties/emv",
+          "type": "string",
+          "title": "The emv schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "https://pix.bcb.gov.br/api/v2/AcessoPermitido/7d9f0335-8dcc-4054-9bf9-0dbd61d36906"
+          ]
+        },
+        "pix_link": {
+          "id": "#/properties/data/properties/pix_link",
+          "type": "string",
+          "title": "The pix_link schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "https://pix.bcb.gov.br/api/v2/AcessoPermitido/MDAwMjAxMDEwMjExMjY4NjAw"
+          ]
+        },
+        "imagem_base64": {
+          "id": "#/properties/data/properties/imagem_base64",
+          "type": "string",
+          "title": "The imagem_base64 schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "XYZ7P5MGBmMNBOxiXPTOSGzUvXCKcBP60X2OsF9nqBvf4D8BsNcSWJ"
+          ]
+        },
+        "amount_modifiers": {
+          "id": "#/properties/data/properties/amount_modifiers",
+          "type": "object",
+          "title": "The amount_modifiers schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "interest": 100,
+              "late_fee": 100,
+              "discount": 350,
+              "interest_percentage": 0.1,
+              "discount_percentage": 0.1,
+              "allow_changes": false
+            }
+          ],
+          "required": [
+            "interest",
+            "late_fee",
+            "discount",
+            "interest_percentage",
+            "discount_percentage",
+            "allow_changes"
+          ],
+          "properties": {
+            "interest": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/interest",
+              "type": "integer",
+              "title": "The interest schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                100
+              ]
+            },
+            "late_fee": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/late_fee",
+              "type": "integer",
+              "title": "The late_fee schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                100
+              ]
+            },
+            "discount": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/discount",
+              "type": "integer",
+              "title": "The discount schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                350
+              ]
+            },
+            "interest_percentage": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/interest_percentage",
+              "type": "number",
+              "title": "The interest_percentage schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0.0,
+              "examples": [
+                0.1
+              ]
+            },
+            "discount_percentage": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/discount_percentage",
+              "type": "number",
+              "title": "The discount_percentage schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0.0,
+              "examples": [
+                0.1
+              ]
+            },
+            "allow_changes": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/allow_changes",
+              "type": "boolean",
+              "title": "The allow_changes schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "dict_key": {
+          "id": "#/properties/data/properties/dict_key",
+          "type": "object",
+          "title": "The dict_key schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "type": "EMAIL",
+              "value": "ricardo@gmail.com"
+            }
+          ],
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "id": "#/properties/data/properties/dict_key/properties/type",
+              "type": "string",
+              "title": "The type schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "EMAIL"
+              ]
+            },
+            "value": {
+              "id": "#/properties/data/properties/dict_key/properties/value",
+              "type": "string",
+              "title": "The value schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "ricardo@gmail.com"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "review_document": {
+          "id": "#/properties/data/properties/review_document",
+          "type": "object",
+          "title": "The review_document schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "review": 0,
+              "review_document_id": "xpto-1234-5678-8976-cr354f"
+            }
+          ],
+          "required": [
+            "review",
+            "review_document_id"
+          ],
+          "properties": {
+            "review": {
+              "id": "#/properties/data/properties/review_document/properties/review",
+              "type": "integer",
+              "title": "The review schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            },
+            "review_document_id": {
+              "id": "#/properties/data/properties/review_document/properties/review_document_id",
+              "type": "string",
+              "title": "The review_document_id schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "xpto-1234-5678-8976-cr354f"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "calendar": {
+          "id": "#/properties/data/properties/calendar",
+          "type": "object",
+          "title": "The calendar schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "expiration": "2021-01-01 23:00:00",
+              "due_date": "2021-01-01 23:00:00",
+              "late_fee": "2021-01-01 23:00:00",
+              "interest": "2021-01-01 23:00:00",
+              "discount": "2021-01-01 23:00:00",
+              "presentation": "2021-01-01 23:00:00",
+              "overdue_payment_allowed": false,
+              "created_at": "2020-12-28 13:42:40"
+            }
+          ],
+          "required": [
+            "expiration",
+            "due_date",
+            "late_fee",
+            "interest",
+            "discount",
+            "presentation",
+            "overdue_payment_allowed",
+            "created_at"
+          ],
+          "properties": {
+            "expiration": {
+              "id": "#/properties/data/properties/calendar/properties/expiration",
+              "type": "string",
+              "title": "The expiration schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2021-01-01 23:00:00"
+              ]
+            },
+            "due_date": {
+              "id": "#/properties/data/properties/calendar/properties/due_date",
+              "type": "string",
+              "title": "The due_date schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2021-01-01 23:00:00"
+              ]
+            },
+            "late_fee": {
+              "id": "#/properties/data/properties/calendar/properties/late_fee",
+              "type": "string",
+              "title": "The late_fee schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2021-01-01 23:00:00"
+              ]
+            },
+            "interest": {
+              "id": "#/properties/data/properties/calendar/properties/interest",
+              "type": "string",
+              "title": "The interest schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2021-01-01 23:00:00"
+              ]
+            },
+            "discount": {
+              "id": "#/properties/data/properties/calendar/properties/discount",
+              "type": "string",
+              "title": "The discount schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2021-01-01 23:00:00"
+              ]
+            },
+            "presentation": {
+              "id": "#/properties/data/properties/calendar/properties/presentation",
+              "type": "string",
+              "title": "The presentation schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2021-01-01 23:00:00"
+              ]
+            },
+            "overdue_payment_allowed": {
+              "id": "#/properties/data/properties/calendar/properties/overdue_payment_allowed",
+              "type": "boolean",
+              "title": "The overdue_payment_allowed schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "created_at": {
+              "id": "#/properties/data/properties/calendar/properties/created_at",
+              "type": "string",
+              "title": "The created_at schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "2020-12-28 13:42:40"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "qrcode": {
+          "id": "#/properties/data/properties/qrcode",
+          "type": "object",
+          "title": "The qrcode schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "type": "DYNAMIC",
+              "reusable": true,
+              "qrcode_pix_id": "123456789",
+              "simulation": false,
+              "standard": false,
+              "status": "ACTIVE",
+              "reusable_type": "AUTOMATIC",
+              "operator_id": "12345",
+              "recipient": {
+                "number": "19571816051",
+                "name": "Teste para Estudo rest assured",
+                "document_type": "CPF",
+                "bank_account": {
+                  "ispb": "123456789",
+                  "name": "Teste estudo",
+                  "branch": "05",
+                  "number": "21052012",
+                  "type": "CORRENTE"
+                }
+              },
+              "indirect_participant": {
+                "ispb": "123456789",
+                "financial_institution": "XTPO",
+                "account_type": "XXXXX",
+                "instant_payment_ispb_code": "Lorem Ipsum",
+                "agency": "lorem ipsum",
+                "account": "lorem ipsum"
+              }
+            }
+          ],
+          "required": [
+            "type",
+            "reusable",
+            "qrcode_pix_id",
+            "simulation",
+            "standard",
+            "status",
+            "reusable_type",
+            "operator_id",
+            "recipient",
+            "indirect_participant"
+          ],
+          "properties": {
+            "type": {
+              "id": "#/properties/data/properties/qrcode/properties/type",
+              "type": "string",
+              "title": "The type schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "DYNAMIC"
+              ]
+            },
+            "reusable": {
+              "id": "#/properties/data/properties/qrcode/properties/reusable",
+              "type": "boolean",
+              "title": "The reusable schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                true
+              ]
+            },
+            "qrcode_pix_id": {
+              "id": "#/properties/data/properties/qrcode/properties/qrcode_pix_id",
+              "type": "string",
+              "title": "The qrcode_pix_id schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "123456789"
+              ]
+            },
+            "simulation": {
+              "id": "#/properties/data/properties/qrcode/properties/simulation",
+              "type": "boolean",
+              "title": "The simulation schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "standard": {
+              "id": "#/properties/data/properties/qrcode/properties/standard",
+              "type": "boolean",
+              "title": "The standard schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "status": {
+              "id": "#/properties/data/properties/qrcode/properties/status",
+              "type": "string",
+              "title": "The status schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "ACTIVE"
+              ]
+            },
+            "reusable_type": {
+              "id": "#/properties/data/properties/qrcode/properties/reusable_type",
+              "type": "string",
+              "title": "The reusable_type schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "AUTOMATIC"
+              ]
+            },
+            "operator_id": {
+              "id": "#/properties/data/properties/qrcode/properties/operator_id",
+              "type": "string",
+              "title": "The operator_id schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": "",
+              "examples": [
+                "12345"
+              ]
+            },
+            "recipient": {
+              "id": "#/properties/data/properties/qrcode/properties/recipient",
+              "type": "object",
+              "title": "The recipient schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "number": "19571816051",
+                  "name": "Teste para Estudo rest assured",
+                  "document_type": "CPF",
+                  "bank_account": {
+                    "ispb": "123456789",
+                    "name": "Teste estudo",
+                    "branch": "05",
+                    "number": "21052012",
+                    "type": "CORRENTE"
+                  }
+                }
+              ],
+              "required": [
+                "number",
+                "name",
+                "document_type",
+                "bank_account"
+              ],
+              "properties": {
+                "number": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/number",
+                  "type": "string",
+                  "title": "The number schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "19571816051"
+                  ]
+                },
+                "name": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/name",
+                  "type": "string",
+                  "title": "The name schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "Teste para Estudo rest assured"
+                  ]
+                },
+                "document_type": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/document_type",
+                  "type": "string",
+                  "title": "The document_type schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "CPF"
+                  ]
+                },
+                "bank_account": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account",
+                  "type": "object",
+                  "title": "The bank_account schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                    {
+                      "ispb": "123456789",
+                      "name": "Teste estudo",
+                      "branch": "05",
+                      "number": "21052012",
+                      "type": "CORRENTE"
+                    }
+                  ],
+                  "required": [
+                    "ispb",
+                    "name",
+                    "branch",
+                    "number",
+                    "type"
+                  ],
+                  "properties": {
+                    "ispb": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/ispb",
+                      "type": "string",
+                      "title": "The ispb schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "123456789"
+                      ]
+                    },
+                    "name": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/name",
+                      "type": "string",
+                      "title": "The name schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "Teste estudo"
+                      ]
+                    },
+                    "branch": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/branch",
+                      "type": "string",
+                      "title": "The branch schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "05"
+                      ]
+                    },
+                    "number": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/number",
+                      "type": "string",
+                      "title": "The number schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "21052012"
+                      ]
+                    },
+                    "type": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/type",
+                      "type": "string",
+                      "title": "The type schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                        "CORRENTE"
+                      ]
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "additionalProperties": true
+            },
+            "indirect_participant": {
+              "id": "#/properties/data/properties/qrcode/properties/indirect_participant",
+              "type": "object",
+              "title": "The indirect_participant schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                {
+                  "ispb": "123456789",
+                  "financial_institution": "XTPO",
+                  "account_type": "XXXXX",
+                  "instant_payment_ispb_code": "Lorem Ipsum",
+                  "agency": "lorem ipsum",
+                  "account": "lorem ipsum"
+                }
+              ],
+              "required": [
+                "ispb",
+                "financial_institution",
+                "account_type",
+                "instant_payment_ispb_code",
+                "agency",
+                "account"
+              ],
+              "properties": {
+                "ispb": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/ispb",
+                  "type": "string",
+                  "title": "The ispb schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "123456789"
+                  ]
+                },
+                "financial_institution": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/financial_institution",
+                  "type": "string",
+                  "title": "The financial_institution schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "XTPO"
+                  ]
+                },
+                "account_type": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/account_type",
+                  "type": "string",
+                  "title": "The account_type schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "XXXXX"
+                  ]
+                },
+                "instant_payment_ispb_code": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/instant_payment_ispb_code",
+                  "type": "string",
+                  "title": "The instant_payment_ispb_code schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "Lorem Ipsum"
+                  ]
+                },
+                "agency": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/agency",
+                  "type": "string",
+                  "title": "The agency schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "lorem ipsum"
+                  ]
+                },
+                "account": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/account",
+                  "type": "string",
+                  "title": "The account schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": "",
+                  "examples": [
+                    "lorem ipsum"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "infos": {
+          "id": "#/properties/data/properties/infos",
+          "type": "array",
+          "title": "The infos schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "name": "Name teste",
+                "value": "Value Teste"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "id": "#/properties/data/properties/infos/items",
+            "anyOf": [
+              {
+                "id": "#/properties/data/properties/infos/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "name": "Name teste",
+                    "value": "Value Teste"
+                  }
+                ],
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "properties": {
+                  "name": {
+                    "id": "#/properties/data/properties/infos/items/anyOf/0/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "Name teste"
+                    ]
+                  },
+                  "value": {
+                    "id": "#/properties/data/properties/infos/items/anyOf/0/properties/value",
+                    "type": "string",
+                    "title": "The value schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "Value Teste"
+                    ]
+                  }
+                },
+                "additionalProperties": true
+              }
+            ]
+          }
+        },
+        "payments_quantity": {
+          "id": "#/properties/data/properties/payments_quantity",
+          "type": "integer",
+          "title": "The payments_quantity schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "payments_document": {
+          "id": "#/properties/data/properties/payments_document",
+          "type": "array",
+          "title": "The payments_document schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "payment_id": "ABC1234",
+                "launch_id": "ABC1234",
+                "transfer_id": "ABC1234",
+                "camera_control_code": "ABC1234",
+                "document_id": "ABC1234",
+                "date_time": "2021-01-01 23:00:00",
+                "amount": 500,
+                "refund_possibility_indicator": false,
+                "max_refund_amount": 500,
+                "refunded_amount": 0,
+                "buyer_response_text": "Lorem ipsum"
+              },
+              {
+                "payment_id": "ABC12345",
+                "launch_id": "ABC12345",
+                "transfer_id": "ABC12345",
+                "camera_control_code": "ABC12345",
+                "document_id": "ABC12345",
+                "date_time": "2021-11-01 12:00:00",
+                "amount": 500,
+                "refund_possibility_indicator": false,
+                "max_refund_amount": 500,
+                "refunded_amount": 0,
+                "buyer_response_text": "Lorem ipsum"
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "id": "#/properties/data/properties/payments_document/items",
+            "anyOf": [
+              {
+                "id": "#/properties/data/properties/payments_document/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "payment_id": "ABC1234",
+                    "launch_id": "ABC1234",
+                    "transfer_id": "ABC1234",
+                    "camera_control_code": "ABC1234",
+                    "document_id": "ABC1234",
+                    "date_time": "2021-01-01 23:00:00",
+                    "amount": 500,
+                    "refund_possibility_indicator": false,
+                    "max_refund_amount": 500,
+                    "refunded_amount": 0,
+                    "buyer_response_text": "Lorem ipsum"
+                  }
+                ],
+                "required": [
+                  "payment_id",
+                  "launch_id",
+                  "transfer_id",
+                  "camera_control_code",
+                  "document_id",
+                  "date_time",
+                  "amount",
+                  "refund_possibility_indicator",
+                  "max_refund_amount",
+                  "refunded_amount",
+                  "buyer_response_text"
+                ],
+                "properties": {
+                  "payment_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/payment_id",
+                    "type": "string",
+                    "title": "The payment_id schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "ABC1234"
+                    ]
+                  },
+                  "launch_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/launch_id",
+                    "type": "string",
+                    "title": "The launch_id schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "ABC1234"
+                    ]
+                  },
+                  "transfer_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/transfer_id",
+                    "type": "string",
+                    "title": "The transfer_id schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "ABC1234"
+                    ]
+                  },
+                  "camera_control_code": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/camera_control_code",
+                    "type": "string",
+                    "title": "The camera_control_code schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "ABC1234"
+                    ]
+                  },
+                  "document_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/document_id",
+                    "type": "string",
+                    "title": "The document_id schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "ABC1234"
+                    ]
+                  },
+                  "date_time": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/date_time",
+                    "type": "string",
+                    "title": "The date_time schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "2021-01-01 23:00:00"
+                    ]
+                  },
+                  "amount": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/amount",
+                    "type": "integer",
+                    "title": "The amount schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      500
+                    ]
+                  },
+                  "refund_possibility_indicator": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/refund_possibility_indicator",
+                    "type": "boolean",
+                    "title": "The refund_possibility_indicator schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": false,
+                    "examples": [
+                      false
+                    ]
+                  },
+                  "max_refund_amount": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/max_refund_amount",
+                    "type": "integer",
+                    "title": "The max_refund_amount schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      500
+                    ]
+                  },
+                  "refunded_amount": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/refunded_amount",
+                    "type": "integer",
+                    "title": "The refunded_amount schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "buyer_response_text": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/buyer_response_text",
+                    "type": "string",
+                    "title": "The buyer_response_text schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "Lorem ipsum"
+                    ]
+                  }
+                },
+                "additionalProperties": true
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

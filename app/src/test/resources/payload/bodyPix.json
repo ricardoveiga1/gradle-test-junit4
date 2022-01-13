@@ -1,0 +1,20 @@
+{
+  "qrcode_type": "PIX",
+  "pix_type": "test",
+  "data": {
+    "dict_key": {
+      "type": "EMAIL",
+      "value": "ricardo@gmail.com"
+    },
+    "amount": 500,
+    "qrcode": {
+      "type": "dynamic",
+      "reusable": true,
+      "reusable_type": "automatic",
+      "recipient": {
+        "document_type": "CPF",
+        "number": "123456789"
+      }
+    }
+  }
+}
