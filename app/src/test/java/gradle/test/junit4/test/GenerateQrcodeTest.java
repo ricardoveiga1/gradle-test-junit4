@@ -2,6 +2,7 @@ package gradle.test.junit4.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.javafaker.Faker;
 import gradle.test.junit4.domain.DecodeDTO;
 import gradle.test.junit4.domain.QrcodeDTO;
 import gradle.test.junit4.suport.DataUtils;
@@ -15,6 +16,8 @@ import org.apache.http.HttpStatus;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
+import java.util.concurrent.TimeUnit;
 
 import static io.restassured.RestAssured.given;
 
@@ -128,7 +131,7 @@ public class GenerateQrcodeTest extends BaseTest {
 
         Response response =
                 given().
-                        when().
+                        when().log().all().
                         body(qrcodeBuilder).
                         when().
                         post(uri);
@@ -193,7 +196,29 @@ public class GenerateQrcodeTest extends BaseTest {
 
     }
 
+    @Test
+    public void shouldCreateQrcodeDTOFAKER() throws JsonProcessingException {
+        String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        //QrcodeDTO qrcodeDTO = new QrcodeDTO();
+        QrcodeDTO qrcodeDTO = QrcodeDTO.builder().build();
+        Faker fake = new Faker();
+        qrcodeDTO.setQrcodeType(fake.address().cityName());
+        //qrcodeDTO.getData().getCalendar().setExpiration(fake.date().future(50L, TimeUnit.SECONDS));
+        qrcodeDTO.getData().getQrcode().setTypeQrcode(fake.name().lastName());
 
+        Response response =
+                given().
+                        when().log().all().
+                        body(qrcodeDTO).
+                        when().
+                        post(uri);
+        response.prettyPrint();
+        response.
+                then().
+                statusCode(HttpStatus.SC_CREATED).
+                body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/createPix.json"));
+
+    }
 
     private String getUri(String endpoint) {
 
