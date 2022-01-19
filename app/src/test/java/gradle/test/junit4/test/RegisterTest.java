@@ -40,7 +40,6 @@ public class RegisterTest extends BaseTest {
             body("error", is("Missing password"));
     }
 
-    //This test shold be in the LoginTest, but it is here in order to show the ResponseSpec just for one test class
     //Esse teste deveria estar no testeLogin, mas está aqui para mostrar funcionalidade de múltiplos setups e ResponseSetup
     @Test
     public void testUnableToLogin() {

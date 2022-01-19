@@ -41,7 +41,7 @@
 
 ## Aprendizado
 
-###Report
+### Report
 - app/build/reports/index.html
 
 ### Criar novo projeto

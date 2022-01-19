@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 import gradle.test.junit4.domain.DecodeDTO;
 import gradle.test.junit4.domain.QrcodeDTO;
+import gradle.test.junit4.suport.QrcodeUtils;
 import gradle.test.junit4.suport.DataUtils;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -17,18 +18,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-import java.util.concurrent.TimeUnit;
-
 import static io.restassured.RestAssured.given;
 
 public class GenerateQrcodeTest extends BaseTest {
 
-    private static final String BASE_URL = "https://zoop-qrcode.staging.zoop.tech";
-    private static final String BASE_PATH = "/pix/v1";
+    private static final String BASE_URL = "http://localhost:3000";
+    private static final String BASE_PATH = "/qrcode/v1";
 
-    private static final String CREATE_QRCODE_ENDPOINT = "/generate";
-    private static final String DECODE_QRCODE_ENDPOINT = "/pix/v1/decode";
-    private static final String SEARCH_QRCODE_ENDPOINT = "/users/{userId}";
+    private static final String CREATE_PIX_ENDPOINT = "/cob";
+    private static final String SEARCH_PIX_ENDPOINT = "/cob/pix";
 
     @BeforeClass
     public static void setup() {
@@ -47,7 +45,7 @@ public class GenerateQrcodeTest extends BaseTest {
 
     @Test
     public void postGenerateQrcodeString(){
-        String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        String uri = getUri(CREATE_PIX_ENDPOINT);
 
         String expirationData = DataUtils.getDataDiferencaDias(1);
         //BK indicou
@@ -100,7 +98,7 @@ public class GenerateQrcodeTest extends BaseTest {
 
     @Test
     public void shouldCreateQrcodeDTO() throws JsonProcessingException {
-        String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        String uri = getUri(CREATE_PIX_ENDPOINT);
         //QrcodeDTO qrcodeDTO = new QrcodeDTO();
         QrcodeDTO qrcodeDTO = QrcodeDTO.builder().build();
         ObjectMapper mapper = new ObjectMapper();
@@ -176,7 +174,7 @@ public class GenerateQrcodeTest extends BaseTest {
 
     @Test
     public void shouldCreateQrcodeOLD()  {
-        String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        String uri = getUri(CREATE_PIX_ENDPOINT);
         QrcodeDTO qrcodeDTO = new QrcodeDTO();
 
         qrcodeDTO.getData().setAmount(25F);
@@ -198,7 +196,7 @@ public class GenerateQrcodeTest extends BaseTest {
 
     @Test
     public void shouldCreateQrcodeDTOFAKER() throws JsonProcessingException {
-        String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        String uri = getUri(CREATE_PIX_ENDPOINT);
         //QrcodeDTO qrcodeDTO = new QrcodeDTO();
         QrcodeDTO qrcodeDTO = QrcodeDTO.builder().build();
         Faker fake = new Faker();
@@ -208,9 +206,8 @@ public class GenerateQrcodeTest extends BaseTest {
 
         Response response =
                 given().
-                        when().log().all().
                         body(qrcodeDTO).
-                        when().
+                        when().log().all().
                         post(uri);
         response.prettyPrint();
         response.
@@ -219,6 +216,46 @@ public class GenerateQrcodeTest extends BaseTest {
                 body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/createPix.json"));
 
     }
+
+//Método no utils e sendo instanciado para este teste
+    @Test
+    public void deveDecodificar(){
+        //String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        String uri = "http://localhost:3000/qrcode/v1/cob";
+        String EMV = QrcodeUtils.CriarQrcodDTO();
+        System.out.println("Emv do método do package Utils: " + EMV);
+        DecodeDTO decodeDTO = new DecodeDTO();
+        decodeDTO.getData().setEmv(EMV);
+
+                given().log().all().
+                        body(decodeDTO).
+                        when().
+                        post(uri).
+                then().
+                        statusCode(HttpStatus.SC_CREATED).
+                        body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/createPix.json"))
+                ;
+    }
+
+
+    //Método no utils e sendo instanciado para este teste
+    @Test
+    public void deveBuscarQrcodeDecodificado(){
+        //String uri = getUri(CREATE_QRCODE_ENDPOINT);
+        String uri = "http://localhost:3000/qrcode/v1/cob";
+        String TYPE = QrcodeUtils.DecodificarQualquerQrcode();
+        System.out.println("Type do método do package Utils: " + TYPE);
+
+        given().
+                when().
+                post(uri).
+                then().
+                log().all().
+                statusCode(HttpStatus.SC_CREATED).
+                body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/createPix.json"))
+        ;
+    }
+
 
     private String getUri(String endpoint) {
 

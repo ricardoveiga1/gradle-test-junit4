@@ -120,7 +120,7 @@ public class UserTest extends BaseTest {
         then().
                 log().all().
             statusCode(HttpStatus.SC_OK).
-        extract().//Extraindo o body cpm json Path, onde pego objetivo e o path Data dele é igual a classe User
+        extract().//Extraindo o body com json Path, onde pego objetivo e o path Data dele é igual a classe User
             body().jsonPath().getObject("data", User.class);
         //@JsonIgnoreProperties(ignoreUnknown = true)  foi colocado na classe para ignorar id e avatar
 

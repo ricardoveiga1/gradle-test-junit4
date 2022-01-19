@@ -1,13 +1,18 @@
 package gradle.test.junit4.test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.javafaker.Faker;
+import gradle.test.junit4.domain.QrcodeDTO;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.junit.BeforeClass;
 
-import static io.restassured.RestAssured.basePath;
-import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.*;
 
 public class BaseTest {
 
