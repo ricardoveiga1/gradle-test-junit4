@@ -16,11 +16,11 @@
 - https://github.com/jenkinsci/docker/blob/master/README.md (docker) - http://localhost:8080/
 
 
-## Comandos após criação do projeto
+## Comandos 
+- gradle init - creates the gradle project
 - gradle wrapper - necessário para criar o Gradle wrapper para poder rodar o gradlew
 - ./gradlew tasks - mostra todas as tarefas disponíveis
 - ./gradlew test - roda todos os testes do pacote 'src/test'
-- ./gradlew build
 
 ## Executar testes
 

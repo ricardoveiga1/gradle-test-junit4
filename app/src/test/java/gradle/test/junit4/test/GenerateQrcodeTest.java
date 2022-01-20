@@ -28,6 +28,9 @@ public class GenerateQrcodeTest extends BaseTest {
     private static final String CREATE_PIX_ENDPOINT = "/cob";
     private static final String SEARCH_PIX_ENDPOINT = "/cob/pix";
 
+    //Chamando método do qrcodeutils no beforeclass
+    private static final String EMV = QrcodeUtils.CriarQrcodDTO();
+
     @BeforeClass
     public static void setup() {
         //habilita log para todo erro no teste, verbosidade
@@ -41,6 +44,7 @@ public class GenerateQrcodeTest extends BaseTest {
         RestAssured.responseSpecification = new ResponseSpecBuilder().
                 expectContentType(ContentType.JSON).
                 build();
+
     }
 
     @Test
@@ -222,7 +226,7 @@ public class GenerateQrcodeTest extends BaseTest {
     public void deveDecodificar(){
         //String uri = getUri(CREATE_QRCODE_ENDPOINT);
         String uri = "http://localhost:3000/qrcode/v1/cob";
-        String EMV = QrcodeUtils.CriarQrcodDTO();
+        //String EMV = QrcodeUtils.CriarQrcodDTO();
         System.out.println("Emv do método do package Utils: " + EMV);
         DecodeDTO decodeDTO = new DecodeDTO();
         decodeDTO.getData().setEmv(EMV);

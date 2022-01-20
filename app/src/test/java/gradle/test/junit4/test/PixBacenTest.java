@@ -3,6 +3,7 @@ package gradle.test.junit4.test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import gradle.test.junit4.domain.DecodeDTO;
 import gradle.test.junit4.domain.QrcodeDTO;
+import gradle.test.junit4.suport.QrcodeUtils;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -25,6 +26,9 @@ public class PixBacenTest {
 
     private static final String CREATE_PIX_ENDPOINT = "/cob";
     private static final String SEARCH_PIX_ENDPOINT = "/cob/pix";
+
+    //Chamando método do qrcodeutils no beforeclass
+    private static final String EMV = QrcodeUtils.CriarQrcodDTO();
 
     @BeforeClass
     public static void setup() {
@@ -66,7 +70,7 @@ public class PixBacenTest {
    // @Ignore
     public void gerarPixBacenTest(){
         String uri = getUri(CREATE_PIX_ENDPOINT);
-        File bodyPix = new File("/Users/ricardoveiga/Documents/zoop-projects/zoop-barcode-services-test/app/src/test/resources/payload/bodyPix.json");
+        File bodyPix = new File("/Users/ricardoveiga/Documents/study-projects/gradle-test-junit4/app/src/test/resources/payload/bodyPix.json");
         //String json = bodyPix.toString();
         //System.out.println("Body => " + bodyPix);
         Response response =
@@ -169,6 +173,25 @@ public class PixBacenTest {
                         post(uri);
         response.prettyPrint();
         response.
+                then().
+                statusCode(HttpStatus.SC_CREATED).
+                body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/createPix.json"));
+    }
+
+    @Test
+    public void decodificarQrcodeUtils(){
+        String uri = getUri(CREATE_PIX_ENDPOINT);
+        DecodeDTO decodeDTO = new DecodeDTO();
+        decodeDTO.getData().setEmv(EMV);
+        System.out.println("EMV do método do package Utils: " + EMV);
+        Response responseDecode =
+                given().
+                        when().log().all().
+                        body(decodeDTO).
+                        when().
+                        post(uri);
+        responseDecode.prettyPrint();
+        responseDecode.
                 then().
                 statusCode(HttpStatus.SC_CREATED).
                 body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/createPix.json"));

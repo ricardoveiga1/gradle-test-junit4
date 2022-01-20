@@ -51,7 +51,7 @@ public class UserTest extends BaseTest {
 
     @Test//Utilizando json schema estático
     public  void testeCreateUserSchemaStatic(){
-        File bodyUser = new File("/Users/ricardoveiga/Documents/zoop-projects/zoop-barcode-services-test/app/src/test/resources/payload/bodyUser.json");
+        File bodyUser = new File("/Users/ricardoveiga/Documents/study-projects/gradle-test-junit4/app/src/test/resources/payload/bodyUser.json");
         Response response =
                 given().
                 log().all().
