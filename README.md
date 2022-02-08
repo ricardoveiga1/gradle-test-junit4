@@ -38,6 +38,8 @@
 - ./gradlew test --tests '*AppTest'
 - ./gradlew test --tests '*.UserTest'(somente a classe)
 - ./gradlew test --tests '*.UserTest.testeCreateUserSchemaStatic'(test específico)
+- gradle test  --tests '*PixExtendBaseTest' --stacktrace
+- ./gradlew test  --tests '*PixExtendBaseTest' --stacktrace
 
 ## Aprendizado
 

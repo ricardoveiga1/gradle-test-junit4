@@ -11,12 +11,11 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasKey;
 
-public class PixTestExtendBaseTest extends BaseTestProductionPix{
+public class PixExtendBaseTest extends BaseTestProductionPix{
 
     private static final String GET_PIX = "/1";
     private static final String GENERATE_PIX = "/generate";
     private static final String DECODE_PIX = "/decode";
-
 
     @Test
     public void getOnePix(){
@@ -41,36 +40,19 @@ public class PixTestExtendBaseTest extends BaseTestProductionPix{
 
     @Test
     public  void  gerarPix(){
-        String EmvPix = generateQrcodeDTO();
+        String EmvPix = generateReturnQrcodeDTO();
         System.out.println("EMV do método do package Utils: " + EmvPix);
     }
 
-    public static String generateQrcodeDTO()  {
-        // String uri = getUri(CREATE_PIX_ENDPOINT);
-        QrcodeDTO qrcodeDTO = QrcodeDTO.builder().build();
-
-        Faker fake = new Faker();
-        qrcodeDTO.setQrcodeType(fake.address().cityName());
-
-        return
-                given().
-                        body(qrcodeDTO).
-                        when().
-                        post(GENERATE_PIX).
-                        then().
-                        extract().
-                        path("data.emv")
-                ;
-    }
 
     @Test
     public  void  decodePix(){
-        String EmvPix = generateExtractQrcodeDTO();//Metodo de geração abaixo
+        String EmvPix = generateReturnQrcodeDTO();//Metodo de geração abaixo
         System.out.println("EMV do método do package Utils: " + EmvPix);
 
         DecodeDTO decodeDTO = new DecodeDTO();
         decodeDTO.getData().setEmv(EmvPix);
-    //Decodificando
+        //Decodificando
         Response responseDecode =
                 given().
                         when().log().all().
@@ -86,13 +68,10 @@ public class PixTestExtendBaseTest extends BaseTestProductionPix{
 
 
 
-    public static String generateExtractQrcodeDTO()  {
-        // String uri = getUri(CREATE_PIX_ENDPOINT);
+    public static String generateReturnQrcodeDTO()  {
         QrcodeDTO qrcodeDTO = QrcodeDTO.builder().build();
-
         Faker fake = new Faker();
         qrcodeDTO.setQrcodeType(fake.address().cityName());
-
         return
                 given().
                         body(qrcodeDTO).
@@ -104,32 +83,13 @@ public class PixTestExtendBaseTest extends BaseTestProductionPix{
                 ;
     }
 
+
     @Test
     public void gerarPixResponseTest(){
-        decodePix();
-
-
+        gerarPixResponse();
     }
 
 
-    public static void gerarPixResponse()  {
-        // String uri = getUri(CREATE_PIX_ENDPOINT);
-        QrcodeDTO qrcodeDTO = QrcodeDTO.builder().build();
-
-        Faker fake = new Faker();
-        qrcodeDTO.setQrcodeType(fake.address().cityName());
-
-        String Response =
-                given().
-                        body(qrcodeDTO).
-                        when().
-                        post(GENERATE_PIX).
-                        then().
-                        log().all().
-                        extract().
-                        path("data.emv")
-                ;
-    }
 
 
 }

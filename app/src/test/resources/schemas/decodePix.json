@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://example.com/example.json",
+  "type": "object",
+  "required": [
+    "status",
+    "calendario",
+    "location",
+    "txid",
+    "revisao",
+    "devedor",
+    "valor",
+    "chave",
+    "solicitacaoPagador"
+  ],
+  "properties": {
+    "status": {
+      "id": "#/properties/status",
+      "type": "string"
+    },
+    "calendario": {
+      "id": "#/properties/calendario",
+      "type": "object",
+      "required": [
+        "criacao",
+        "expiracao"
+      ],
+      "properties": {
+        "criacao": {
+          "id": "#/properties/calendario/properties/criacao",
+          "type": "string"
+        },
+        "expiracao": {
+          "id": "#/properties/calendario/properties/expiracao",
+          "type": "string"
+        }
+      }
+    },
+    "location": {
+      "id": "#/properties/location",
+      "type": "string"
+    },
+    "txid": {
+      "id": "#/properties/txid",
+      "type": "string"
+    },
+    "revisao": {
+      "id": "#/properties/revisao",
+      "type": "integer"
+    },
+    "devedor": {
+      "id": "#/properties/devedor",
+      "type": "object",
+      "required": [
+        "cnpj",
+        "nome"
+      ],
+      "properties": {
+        "cnpj": {
+          "id": "#/properties/devedor/properties/cnpj",
+          "type": "string"
+        },
+        "nome": {
+          "id": "#/properties/devedor/properties/nome",
+          "type": "string"
+        }
+      }
+    },
+    "valor": {
+      "id": "#/properties/valor",
+      "type": "object",
+      "required": [
+        "original"
+      ],
+      "properties": {
+        "original": {
+          "id": "#/properties/valor/properties/original",
+          "type": "string"
+        }
+      }
+    },
+    "chave": {
+      "id": "#/properties/chave",
+      "type": "string"
+    },
+    "solicitacaoPagador": {
+      "id": "#/properties/solicitacaoPagador",
+      "type": "string"
+    }
+  }
+}

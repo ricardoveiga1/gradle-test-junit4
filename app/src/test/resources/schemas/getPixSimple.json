@@ -1,0 +1,466 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://example.com/example.json",
+  "type": "object",
+  "required": [
+    "qrcode_type",
+    "data"
+  ],
+  "properties": {
+    "qrcode_type": {
+      "id": "#/properties/qrcode_type",
+      "type": "string"
+    },
+    "data": {
+      "id": "#/properties/data",
+      "type": "object",
+      "required": [
+        "tx_id",
+        "document_id",
+        "version",
+        "status",
+        "amount",
+        "final_amount",
+        "refunded",
+        "paid",
+        "payer_request",
+        "url",
+        "emv",
+        "pix_link",
+        "imagem_base64",
+        "amount_modifiers",
+        "dict_key",
+        "review_document",
+        "calendar",
+        "qrcode",
+        "infos",
+        "payments_quantity",
+        "payments_document"
+      ],
+      "properties": {
+        "tx_id": {
+          "id": "#/properties/data/properties/tx_id",
+          "type": "string"
+        },
+        "document_id": {
+          "id": "#/properties/data/properties/document_id",
+          "type": "string"
+        },
+        "version": {
+          "id": "#/properties/data/properties/version",
+          "type": "string"
+        },
+        "status": {
+          "id": "#/properties/data/properties/status",
+          "type": "string"
+        },
+        "amount": {
+          "id": "#/properties/data/properties/amount",
+          "type": "integer"
+        },
+        "final_amount": {
+          "id": "#/properties/data/properties/final_amount",
+          "type": "integer"
+        },
+        "refunded": {
+          "id": "#/properties/data/properties/refunded",
+          "type": "boolean"
+        },
+        "paid": {
+          "id": "#/properties/data/properties/paid",
+          "type": "boolean"
+        },
+        "payer_request": {
+          "id": "#/properties/data/properties/payer_request",
+          "type": "string"
+        },
+        "url": {
+          "id": "#/properties/data/properties/url",
+          "type": "string"
+        },
+        "emv": {
+          "id": "#/properties/data/properties/emv",
+          "type": "string"
+        },
+        "pix_link": {
+          "id": "#/properties/data/properties/pix_link",
+          "type": "string"
+        },
+        "imagem_base64": {
+          "id": "#/properties/data/properties/imagem_base64",
+          "type": "string"
+        },
+        "amount_modifiers": {
+          "id": "#/properties/data/properties/amount_modifiers",
+          "type": "object",
+          "required": [
+            "interest",
+            "late_fee",
+            "discount",
+            "interest_percentage",
+            "discount_percentage",
+            "allow_changes"
+          ],
+          "properties": {
+            "interest": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/interest",
+              "type": "integer"
+            },
+            "late_fee": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/late_fee",
+              "type": "integer"
+            },
+            "discount": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/discount",
+              "type": "integer"
+            },
+            "interest_percentage": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/interest_percentage",
+              "type": "number"
+            },
+            "discount_percentage": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/discount_percentage",
+              "type": "number"
+            },
+            "allow_changes": {
+              "id": "#/properties/data/properties/amount_modifiers/properties/allow_changes",
+              "type": "boolean"
+            }
+          }
+        },
+        "dict_key": {
+          "id": "#/properties/data/properties/dict_key",
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "id": "#/properties/data/properties/dict_key/properties/type",
+              "type": "string"
+            },
+            "value": {
+              "id": "#/properties/data/properties/dict_key/properties/value",
+              "type": "string"
+            }
+          }
+        },
+        "review_document": {
+          "id": "#/properties/data/properties/review_document",
+          "type": "object",
+          "required": [
+            "review",
+            "review_document_id"
+          ],
+          "properties": {
+            "review": {
+              "id": "#/properties/data/properties/review_document/properties/review",
+              "type": "integer"
+            },
+            "review_document_id": {
+              "id": "#/properties/data/properties/review_document/properties/review_document_id",
+              "type": "string"
+            }
+          }
+        },
+        "calendar": {
+          "id": "#/properties/data/properties/calendar",
+          "type": "object",
+          "required": [
+            "expiration",
+            "due_date",
+            "late_fee",
+            "interest",
+            "discount",
+            "presentation",
+            "overdue_payment_allowed",
+            "created_at"
+          ],
+          "properties": {
+            "expiration": {
+              "id": "#/properties/data/properties/calendar/properties/expiration",
+              "type": "string"
+            },
+            "due_date": {
+              "id": "#/properties/data/properties/calendar/properties/due_date",
+              "type": "string"
+            },
+            "late_fee": {
+              "id": "#/properties/data/properties/calendar/properties/late_fee",
+              "type": "string"
+            },
+            "interest": {
+              "id": "#/properties/data/properties/calendar/properties/interest",
+              "type": "string"
+            },
+            "discount": {
+              "id": "#/properties/data/properties/calendar/properties/discount",
+              "type": "string"
+            },
+            "presentation": {
+              "id": "#/properties/data/properties/calendar/properties/presentation",
+              "type": "string"
+            },
+            "overdue_payment_allowed": {
+              "id": "#/properties/data/properties/calendar/properties/overdue_payment_allowed",
+              "type": "boolean"
+            },
+            "created_at": {
+              "id": "#/properties/data/properties/calendar/properties/created_at",
+              "type": "string"
+            }
+          }
+        },
+        "qrcode": {
+          "id": "#/properties/data/properties/qrcode",
+          "type": "object",
+          "required": [
+            "type",
+            "reusable",
+            "qrcode_pix_id",
+            "simulation",
+            "standard",
+            "status",
+            "reusable_type",
+            "operator_id",
+            "recipient",
+            "indirect_participant"
+          ],
+          "properties": {
+            "type": {
+              "id": "#/properties/data/properties/qrcode/properties/type",
+              "type": "string"
+            },
+            "reusable": {
+              "id": "#/properties/data/properties/qrcode/properties/reusable",
+              "type": "boolean"
+            },
+            "qrcode_pix_id": {
+              "id": "#/properties/data/properties/qrcode/properties/qrcode_pix_id",
+              "type": "string"
+            },
+            "simulation": {
+              "id": "#/properties/data/properties/qrcode/properties/simulation",
+              "type": "boolean"
+            },
+            "standard": {
+              "id": "#/properties/data/properties/qrcode/properties/standard",
+              "type": "boolean"
+            },
+            "status": {
+              "id": "#/properties/data/properties/qrcode/properties/status",
+              "type": "string"
+            },
+            "reusable_type": {
+              "id": "#/properties/data/properties/qrcode/properties/reusable_type",
+              "type": "string"
+            },
+            "operator_id": {
+              "id": "#/properties/data/properties/qrcode/properties/operator_id",
+              "type": "string"
+            },
+            "recipient": {
+              "id": "#/properties/data/properties/qrcode/properties/recipient",
+              "type": "object",
+              "required": [
+                "number",
+                "name",
+                "document_type",
+                "bank_account"
+              ],
+              "properties": {
+                "number": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/number",
+                  "type": "string"
+                },
+                "name": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/name",
+                  "type": "string"
+                },
+                "document_type": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/document_type",
+                  "type": "string"
+                },
+                "bank_account": {
+                  "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account",
+                  "type": "object",
+                  "required": [
+                    "ispb",
+                    "name",
+                    "branch",
+                    "number",
+                    "type"
+                  ],
+                  "properties": {
+                    "ispb": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/ispb",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/name",
+                      "type": "string"
+                    },
+                    "branch": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/branch",
+                      "type": "string"
+                    },
+                    "number": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/number",
+                      "type": "string"
+                    },
+                    "type": {
+                      "id": "#/properties/data/properties/qrcode/properties/recipient/properties/bank_account/properties/type",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "indirect_participant": {
+              "id": "#/properties/data/properties/qrcode/properties/indirect_participant",
+              "type": "object",
+              "required": [
+                "ispb",
+                "financial_institution",
+                "account_type",
+                "instant_payment_ispb_code",
+                "agency",
+                "account"
+              ],
+              "properties": {
+                "ispb": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/ispb",
+                  "type": "string"
+                },
+                "financial_institution": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/financial_institution",
+                  "type": "string"
+                },
+                "account_type": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/account_type",
+                  "type": "string"
+                },
+                "instant_payment_ispb_code": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/instant_payment_ispb_code",
+                  "type": "string"
+                },
+                "agency": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/agency",
+                  "type": "string"
+                },
+                "account": {
+                  "id": "#/properties/data/properties/qrcode/properties/indirect_participant/properties/account",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "infos": {
+          "id": "#/properties/data/properties/infos",
+          "type": "array",
+          "items": {
+            "id": "#/properties/data/properties/infos/items",
+            "anyOf": [
+              {
+                "id": "#/properties/data/properties/infos/items/anyOf/0",
+                "type": "object",
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "properties": {
+                  "name": {
+                    "id": "#/properties/data/properties/infos/items/anyOf/0/properties/name",
+                    "type": "string"
+                  },
+                  "value": {
+                    "id": "#/properties/data/properties/infos/items/anyOf/0/properties/value",
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "payments_quantity": {
+          "id": "#/properties/data/properties/payments_quantity",
+          "type": "integer"
+        },
+        "payments_document": {
+          "id": "#/properties/data/properties/payments_document",
+          "type": "array",
+          "items": {
+            "id": "#/properties/data/properties/payments_document/items",
+            "anyOf": [
+              {
+                "id": "#/properties/data/properties/payments_document/items/anyOf/0",
+                "type": "object",
+                "required": [
+                  "payment_id",
+                  "launch_id",
+                  "transfer_id",
+                  "camera_control_code",
+                  "document_id",
+                  "date_time",
+                  "amount",
+                  "refund_possibility_indicator",
+                  "max_refund_amount",
+                  "refunded_amount",
+                  "buyer_response_text"
+                ],
+                "properties": {
+                  "payment_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/payment_id",
+                    "type": "string"
+                  },
+                  "launch_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/launch_id",
+                    "type": "string"
+                  },
+                  "transfer_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/transfer_id",
+                    "type": "string"
+                  },
+                  "camera_control_code": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/camera_control_code",
+                    "type": "string"
+                  },
+                  "document_id": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/document_id",
+                    "type": "string"
+                  },
+                  "date_time": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/date_time",
+                    "type": "string"
+                  },
+                  "amount": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/amount",
+                    "type": "integer"
+                  },
+                  "refund_possibility_indicator": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/refund_possibility_indicator",
+                    "type": "boolean"
+                  },
+                  "max_refund_amount": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/max_refund_amount",
+                    "type": "integer"
+                  },
+                  "refunded_amount": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/refunded_amount",
+                    "type": "integer"
+                  },
+                  "buyer_response_text": {
+                    "id": "#/properties/data/properties/payments_document/items/anyOf/0/properties/buyer_response_text",
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
