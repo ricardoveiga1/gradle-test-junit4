@@ -78,7 +78,7 @@ public class AlternativeUserTest {
             param("page",expectedPage).
         when().
             get(uri).
-        then().
+        then().log().all().
             statusCode(HttpStatus.SC_OK).
             contentType(ContentType.JSON).
             body(

@@ -6,14 +6,9 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.response.Response;
-import org.apache.http.HttpStatus;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.hasKey;
 
 public class BaseTestProductionPix {
 
